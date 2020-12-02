@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.MainActivity">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:id="@+id/lyTop"
+            android:orientation="vertical">
+        <fragment android:name="com.arneplant.packinglist.fragment.BuscadorFragment"
+                  android:id="@+id/frgBuscador"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|center_vertical"
+            android:id="@+id/lyMid"
+            android:orientation="vertical"
+            android:layout_below="@id/lyTop"
+            android:layout_marginTop="100dp"
+    >
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:text="Sincroniza el dispositivo"
+                android:id="@+id/lblLogConexion"
+                android:textSize="30dp"
+                android:textColor="#000000"/>
+        <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/pbSincronizar"
+                android:layout_gravity="center_horizontal|center_vertical"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:text="O crea un nuevo packing list"
+                android:id="@+id/lblCrearPackinglist"
+                android:textSize="27dp"
+                android:textColor="#000000"/>
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nuevo packing list"
+                android:id="@+id/btNuevo"
+                android:background="@drawable/btn_verde_click"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:drawableRight="@drawable/ic_add_24px"
+        android:padding="10dp"/>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
