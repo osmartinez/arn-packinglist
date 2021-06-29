@@ -74,7 +74,7 @@ class PackingListFragment : Fragment() {
         anim.start()
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         if(context is LecturaCajaDelegate){
             delegate = context

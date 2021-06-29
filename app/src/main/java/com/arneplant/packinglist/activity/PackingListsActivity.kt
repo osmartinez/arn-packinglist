@@ -1,36 +1,28 @@
 package com.arneplant.packinglist.activity
 
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.snackbar.Snackbar
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 
 import com.arneplant.packinglist.R
 import com.arneplant.packinglist.fragment.PackingListFragment
 import com.arneplant.packinglist.model.PackingList
-import com.arneplant.packinglist.model.Respuesta
 import com.arneplant.packinglist.model.dto.*
-import com.arneplant.packinglist.network_interface.GestionPackingList
+import com.arneplant.packinglist.network_implementation.GestionPackingList
 import com.arneplant.packinglist.ui_interface.BuscadorFragmentDelegate
 import com.arneplant.packinglist.ui_interface.LecturaCajaDelegate
 import com.arneplant.packinglist.util.Tipo
 import com.arneplant.packinglist.util.Utils
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_packing_lists.*
-import kotlinx.android.synthetic.main.fragment_packing_lists.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.net.ServerSocket
 import java.util.*
 
 class PackingListsActivity : AppCompatActivity(), LecturaCajaDelegate, BuscadorFragmentDelegate {
@@ -55,6 +47,7 @@ class PackingListsActivity : AppCompatActivity(), LecturaCajaDelegate, BuscadorF
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_packing_lists)
 
+        this.title = "PACKINGLIST"
         packingLists = (intent.extras.getSerializable("PACKINGLISTS") as PackingListsWrapper).packingListsDTO
         ip = intent.extras.getSerializable("IP_PC") as String
         snackbar = fab as View
@@ -209,17 +202,7 @@ class PackingListsActivity : AppCompatActivity(), LecturaCajaDelegate, BuscadorF
                 else{
                     log("Error al añadir caja")
                 }
-                /*var resp = response.body()
-                if(resp!=null){
-                    // Codigo.OK
-                    if(resp.codigo==0){
-                        comprobarPackings(codigoCaja,idPackingList)
-                    }
-                   log(resp.mensaje)
-                }
-                else{
-                    log("RESPUESTA == NIL")
-                }*/
+
             }
         })
     }

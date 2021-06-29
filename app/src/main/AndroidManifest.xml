@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.arneplant.packinglist">
+        package="com.arneplant.packinglist">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -15,18 +16,20 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".activity.ConvertirEtiquetasActivity"  android:windowSoftInputMode="stateHidden"></activity>
+        <activity android:name=".activity.UbicarActivity"  android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".activity.MainMenuActivity"  android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
                 android:name=".activity.PackingListsActivity"
                 android:label="@string/title_activity_packing_lists"
-                android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity android:name=".activity.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
+                android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.MainActivity" />
 
         <provider
                 android:name="androidx.core.content.FileProvider"
@@ -37,7 +40,6 @@
                     android:name="android.support.FILE_PROVIDER_PATHS"
                     android:resource="@xml/provider_paths" />
         </provider>
-
     </application>
 
 </manifest>

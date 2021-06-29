@@ -16,6 +16,8 @@ class Utils {
                 Tipo.Contenedor
             } else if (cod.startsWith("192")) {
                 Tipo.IP
+            }else if (cod.startsWith("03")) {
+                Tipo.Ubicacion
             } else{
                 Tipo.None
             }

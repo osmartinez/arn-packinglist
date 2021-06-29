@@ -1,4 +1,4 @@
-package com.arneplant.packinglist.network_implementation
+package com.arneplant.packinglist.network_interface
 
 import com.arneplant.packinglist.model.PackingList
 import com.arneplant.packinglist.model.Respuesta
@@ -12,10 +12,9 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface IGestionPackingList {
-    @POST("packinglists/crear")
-    abstract fun crearPackingList(@Body usuario: Usuario): Call<PackingList>
+    @POST("api/packinglists/crear")
+    fun crearPackingList(@Body usuario: Usuario): Call<PackingList>
 
-    @POST("packinglists/insertarContenedor")
-    abstract fun addContenedorAPackingList(@Body etiquetaPackinglistEtiqueta: PackinglistEtiqueta): Call<Contenedor>
-
+    @POST("api/packinglists/insertarContenedor")
+    fun addContenedorAPackingList(@Body etiquetaPackinglistEtiqueta: PackinglistEtiqueta): Call<Contenedor>
 }

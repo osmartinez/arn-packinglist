@@ -52,6 +52,7 @@
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:text="O crea un nuevo packing list"
                 android:id="@+id/lblCrearPackinglist"
+
                 android:textSize="27dp"
                 android:textColor="#000000"/>
 
@@ -60,6 +61,7 @@
                 android:layout_height="wrap_content"
                 android:text="Nuevo packing list"
                 android:id="@+id/btNuevo"
+                android:textColor="@color/white"
                 android:background="@drawable/btn_verde_click"
         android:layout_gravity="center_horizontal|center_vertical"
         android:drawableRight="@drawable/ic_add_24px"

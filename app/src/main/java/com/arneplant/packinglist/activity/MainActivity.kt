@@ -3,7 +3,6 @@ package com.arneplant.packinglist.activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.StrictMode
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.arneplant.packinglist.R
@@ -12,13 +11,11 @@ import com.arneplant.packinglist.model.dto.PackingListDTO
 import com.arneplant.packinglist.model.dto.PackingListsWrapper
 import com.arneplant.packinglist.model.dto.Usuario
 import com.arneplant.packinglist.network.TCP
-import com.arneplant.packinglist.network_interface.GestionPackingList
+import com.arneplant.packinglist.network_implementation.GestionPackingList
 import com.arneplant.packinglist.ui_interface.BuscadorFragmentDelegate
-import com.arneplant.packinglist.util.ApkUpdateAsyncTask
 import com.arneplant.packinglist.util.Tipo
 import com.arneplant.packinglist.util.Utils
 import kotlinx.android.synthetic.main.activity_main.*
-import okhttp3.internal.Util
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,18 +31,8 @@ class MainActivity : AppCompatActivity(), BuscadorFragmentDelegate {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        this.ctx = this
 
-        val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
-        StrictMode.setThreadPolicy(policy)
-
-        val app_name = packageManager.getPackageInfo(packageName, 0).packageName
-        var url_apk = "http://192.168.0.104/aplicaciones/$app_name/app-debug.apk"
-        var url_v = "http://192.168.0.104/aplicaciones/$app_name/version.json"
-
-        var atualizaApp = ApkUpdateAsyncTask()
-        atualizaApp.setContext(applicationContext)
-        atualizaApp.execute(url_apk, url_v)
+        this.title = "PACKINGLIST"
 
         btNuevo.setOnClickListener { nuevoPackingList() }
     }
